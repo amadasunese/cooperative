@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Members</h1>
+<form method="POST" action="{{ url_for('add_member') }}">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Add Member</button>
+</form>
+<ul>
+    {% for member in members %}
+        <li>{{ member.name }} - {{ member.email }} - {{ member.account_number }} - {{ member.join_date }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

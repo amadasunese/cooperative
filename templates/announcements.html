@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Announcements</h1>
+<form method="POST" action="{{ url_for('add_announcement') }}">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <button type="submit">Add Announcement</button>
+</form>
+<ul>
+    {% for announcement in announcements %}
+        <li>{{ announcement.date }} - <strong>{{ announcement.title }}</strong>: {{ announcement.content }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

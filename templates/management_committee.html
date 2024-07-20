@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mana_container committee-container">
+    <h1 class="text-center mb-5">MANAGEMENT COMMITTEE</h1>
+    <div class="row">
+        {% for member in members %}
+            <div class="col-md-4 committee-member">
+                <img src="{{ url_for('static', filename=member.photo) }}" alt="{{ member.name }}">
+                <h4>{{ member.name }}</h4>
+                <p>{{ member.position }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

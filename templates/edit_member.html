@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Edit Member</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.surname.label(class="form-control-label") }}
+            {{ form.surname(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.other_names.label(class="form-control-label") }}
+            {{ form.other_names(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.home_address.label(class="form-control-label") }}
+            {{ form.home_address(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {{ form.email(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.date_of_birth.label(class="form-control-label") }}
+            {{ form.date_of_birth(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.telephone_number.label(class="form-control-label") }}
+            {{ form.telephone_number(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.occupation.label(class="form-control-label") }}
+            {{ form.occupation(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.next_of_kin_name.label(class="form-control-label") }}
+            {{ form.next_of_kin_name(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.next_of_kin_phone_number.label(class="form-control-label") }}
+            {{ form.next_of_kin_phone_number(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.relationship_with_next_of_kin.label(class="form-control-label") }}
+            {{ form.relationship_with_next_of_kin(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.address_of_next_of_kin.label(class="form-control-label") }}
+            {{ form.address_of_next_of_kin(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.monthly_savings.label(class="form-control-label") }}
+            {{ form.monthly_savings(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.share_capital.label(class="form-control-label") }}
+            {{ form.share_capital(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.passport_photograph.label(class="form-control-label") }}
+            {{ form.passport_photograph(class="form-control-file") }}
+        </div>
+        <div class="form-group">
+            {{ form.agreement(class="form-check-input") }}
+            {{ form.agreement.label(class="form-check-label") }}
+            
+        </div>
+        <button type="submit" class="btn btn-primary">Update Member</button>
+    </form>
+</div>
+{% endblock %}

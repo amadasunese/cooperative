@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Dashboard</h1>
+<div class="dashboard-summary">
+    <div class="summary-item">
+        <h2>Total Members</h2>
+        <p>{{ total_members }}</p>
+    </div>
+    <div class="summary-item">
+        <h2>Total Loans</h2>
+        <p>{{ total_loans }}</p>
+    </div>
+    <div class="summary-item">
+        <h2>Total Events</h2>
+        <p>{{ total_events }}</p>
+    </div>
+    <div class="summary-item">
+        <h2>Total Polls</h2>
+        <p>{{ total_polls }}</p>
+    </div>
+</div>
+{% endblock %}

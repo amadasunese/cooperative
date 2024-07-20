@@ -1,0 +1,112 @@
+<!-- navigation.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('index') }}">XYZ Multi-Purpose Cooperative Society</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+
+            <!-- Resources Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Resources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                    <a class="dropdown-item" href="{{ url_for('about') }}">About Us</a>
+                    <a class="dropdown-item" href="{{ url_for('documents') }}">Documents</a>
+                    <a class="dropdown-item" href="{{ url_for('resources') }}">Resources</a>
+                    <a class="dropdown-item" href="{{ url_for('blog') }}">News</a>
+                </div>
+            </li>
+
+            <!-- Activities Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="activitiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="activitiesDropdown">
+                    <a class="dropdown-item" href="{{ url_for('add_meeting') }}">Meetings</a>
+                    <a class="dropdown-item" href="{{ url_for('events') }}">Events</a>
+                    <a class="dropdown-item" href="{{ url_for('polls') }}">Polls</a>
+                </div>
+            </li>
+            
+            {% if current_user.is_authenticated %}
+
+            <!-- Membership Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="membershipDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Membership
+                </a>
+                <div class="dropdown-menu" aria-labelledby="membershipDropdown">
+                    <a class="dropdown-item" href="{{ url_for('members') }}">New Member</a>
+                    <a class="dropdown-item" href="{{ url_for('loans') }}">Apply for Loan</a>
+                    <a class="dropdown-item" href="{{ url_for('contributions') }}">Contributions</a>
+                    <a class="dropdown-item" href="{{ url_for('members_list') }}">Members</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('management_committee') }}">Management</a>
+            </li>
+            
+
+            <!-- Financials Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="financialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                </a>
+                <div class="dropdown-menu" aria-labelledby="financialsDropdown">
+                    <a class="dropdown-item" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="dropdown-item" href="{{ url_for('meeting_list') }}">Scheduled Meetings</a>
+                    <a class="dropdown-item" href="{{ url_for('financial_reports') }}">Financial Report</a>
+                    <a class="dropdown-item" href="{{ url_for('upload_document') }}">Add Documents</a>
+                    <a class="dropdown-item" href="{{ url_for('add_news') }}">Add News Report</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+
+            
+
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+            </li>
+
+            {% endif %}
+            <!-- <li class="nav-item">
+                <span class="navbar-text search-icon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </li>
+            <form class="form-inline search-form" action="{{ url_for('search') }}" method="GET">
+                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+            
+        </ul>
+    </div>
+</nav>
+<script>
+    $(document).ready(function(){
+        $('.search-icon').click(function(){
+            $('.search-form').toggleClass('expanded');
+        });
+    });
+</script>

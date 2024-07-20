@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="display-4 mb-4">Edit News Post</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="title">Title</label>
+            {{ form.title(class_="form-control", id="title") }}
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            {{ form.content(class_="form-control", id="content") }}
+        </div>
+        <div class="form-group">
+            <label for="thumbnail">Thumbnail</label>
+            {{ form.thumbnail(class_="form-control-file", id="thumbnail") }}
+            {% if news.thumbnail %}
+                <img src="{{ url_for('static', filename=news.thumbnail) }}" alt="Current Thumbnail" class="img-thumbnail mt-2" width="200">
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Update Post</button>
+        <a href="{{ url_for('news_detail', news_id=news.id) }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

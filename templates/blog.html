@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="display-4 mb-5">Latest Reports</h2>
+
+    {% if news_items %}
+        <section class="blog-posts">
+            <ul class="list-unstyled">
+                {% for news_item in news_items %}
+                    <li class="blog-post media mb-4 p-3 rounded">
+                        <img src="{{ url_for('static', filename=news.thumbnail) }}" class="mr-3 img-thumbnail" alt="{{ news_item.title }}" width="150">
+                        <div class="media-body">
+                            <a href="{{ url_for('news_detail', news_id=news_item.id) }}">
+                                <h5 class="mt-0">{{ news_item.title }}</h5>
+                            </a>
+                            <p class="post-meta text-muted">{{ news_item.date_added.strftime('%B %d, %Y') }}</p>
+                            <p class="post-excerpt">{{ news_item.content[:150] }}...</p>
+                            {% if current_user.is_authenticated %}
+                                <div class="post-actions mt-2">
+                                    <a href="{{ url_for('edit_news', news_id=news_item.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ url_for('delete_news', news_id=news_item.id) }}" method="POST" class="d-inline">
+                                        {{ form.hidden_tag() }}
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% else %}
+        <p class="no-posts">No news items found.</p>
+    {% endif %}
+</div>
+{% endblock %}

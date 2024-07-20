@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="my-4 text-center">Loans</h1>
+    <div class="card">
+        <div class="card-header">
+            Add Loan
+        </div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('add_loan') }}">
+                <div class="form-group">
+                    <label for="member_id">Member ID</label>
+                    <input type="number" name="member_id" id="member_id" class="form-control" placeholder="Member ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" step="0.01" name="amount" id="amount" class="form-control" placeholder="Amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="interest_rate">Interest Rate</label>
+                    <input type="number" step="0.01" name="interest_rate" id="interest_rate" class="form-control" placeholder="Interest Rate" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Add Loan</button>
+            </form>
+        </div>
+    </div>
+
+    <h2 class="my-4">Loan List</h2>
+    <ul class="list-group">
+        {% for loan in loans %}
+        <li class="list-group-item">
+            <strong>Member ID:</strong> {{ loan.member_id }} - <strong>Amount:</strong> {{ loan.amount }} - <strong>Interest Rate:</strong> {{ loan.interest_rate }}
+            <ul class="list-group mt-2">
+                {% for repayment in loan.repayments %}
+                <li class="list-group-item">
+                    <strong>Repayment Amount:</strong> {{ repayment.amount }} - <strong>Date:</strong> {{ repayment.date }}
+                </li>
+                {% endfor %}
+            </ul>
+            <form method="POST" action="{{ url_for('repay_loan') }}" class="mt-2">
+                <input type="hidden" name="loan_id" value="{{ loan.id }}">
+                <div class="form-group">
+                    <label for="repayment_amount">Repayment Amount</label>
+                    <input type="number" step="0.01" name="amount" id="repayment_amount" class="form-control" placeholder="Repayment Amount" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Repay Loan</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

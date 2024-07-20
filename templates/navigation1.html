@@ -1,0 +1,79 @@
+<!-- navigation.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('main.index') }}">Cooperative</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main.about') }}">About Osusu</a>
+            </li>
+            {% if current_user.is_authenticated %}
+                <!-- Group Membership Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="groupMembershipDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Membership
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="groupMembershipDropdown">
+                        <a class="dropdown-item" href="{{ url_for('members') }}">Register Member</a>
+                        <a class="dropdown-item" href="{{ url_for('members_list') }}">List of Members</a>
+                        <a class="dropdown-item" href="{{ url_for('main.group_list') }}">Group List</a>
+                    </div>
+                </li>
+
+                <!-- Dashboard Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dashboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                        <a class="dropdown-item" href="{{ url_for('contributions') }}">Contribution</a>
+                        <a class="dropdown-item" href="{{ url_for('loans') }}">Apply for Loan</a>
+                        <a class="dropdown-item" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </div>
+                </li>
+
+                <!-- Admin Dashboard Dropdown (Visible only to Admin Users) -->
+                {% if current_user.is_admin %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="adminDashboardDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin Dashboard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="adminDashboardDropdown">
+                            <a class="dropdown-item" href="{{ url_for('main.list_users') }}">Users</a>
+                            <a class="dropdown-item" href="{{ url_for('main.admin_dashboard') }}">Admin Dashboard</a>
+                        </div>
+                    </li>
+                {% endif %}
+
+          
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.contact') }}">Contact Support</a>
+                </li> -->
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact Support</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" action="{{ url_for('search') }}" method="GET">
+                    <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ind_container mt-5">
+    <!-- Welcome Section -->
+    <!-- Photo Page Cover -->
+<div class="photo-cover">
+    <div class="overlay">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4">Welcome to </h1>
+                <h3 class="display-7">XYZ Multi-Purpose Cooperative Society</h3>
+                <p class="lead mt-4">Your trusted partner in financial growth and community support.</p>
+                <p>We are dedicated to providing our members with the best financial services and resources to help you achieve your goals. Explore our services, join us in our mission, and grow with us!</p>
+                <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg mt-3">Explore Services</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Announcements Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="services">
+            <h2>Announcements</h2>
+        </div>
+            <div class="card-deck bg-info p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Upcoming Events</h5>
+                        <ul>
+                            {% for event in events %}
+                            <li>{{ event.date }} - <strong>{{ event.title }}</strong></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Upcoming Meetings</h5>
+                        <ul>
+                            {% for meeting in meetings %}
+                            <li>{{ meeting.date.strftime('%b %d, %Y') }} - <strong>{{ meeting.title }}</strong></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ongoing Polls</h5>
+                        <ul>
+                            {% for poll in polls %}
+                            <li>{{ poll.question }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Services Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="services">
+                <h2>Our Services</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Savings Accounts</h5>
+                            <p class="card-text">Secure and grow your savings with our competitive interest rates and personalized service.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Loan Services</h5>
+                            <p class="card-text">Get access to affordable loans with flexible terms to help you achieve your financial goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Investment Opportunities</h5>
+                            <p class="card-text">Invest in our cooperative and enjoy profitable returns and shared benefits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Financial Planning</h5>
+                            <p class="card-text">Expert financial planning services to help you manage your finances and achieve your life goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Insurance</h5>
+                            <p class="card-text">Comprehensive insurance plans to protect you and your loved ones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Consultation Services</h5>
+                            <p class="card-text">Professional consultation services to guide you in making informed financial decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="services">
+                <h2>Latest News</h2>
+                </div>
+            <div class="card-deck">
+                {% for news_item in news_items %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ news_item.title }}</h5>
+                        <p class="card-text">{{ news_item.content[:150] }}...</p>
+                        <a href="{{ url_for('news_detail', news_id=news_item.id) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mt-3 text-right">
+                <a href="{{ url_for('blog') }}" class="btn btn-secondary">Read All News</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Content Section
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>About Us</h2>
+            <p>We are a community-driven cooperative society committed to enhancing the financial well-being of our members. Join us and benefit from our wide range of financial products and services tailored to meet your needs.</p>
+            <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More About Us</a>
+        </div>
+    </div> -->
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cards = document.querySelectorAll('.card');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    });
+</script>
+
+
+{% endblock %}
+

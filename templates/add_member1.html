@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Member</h2>
+<form method="POST" action="{{ url_for('add_member') }}" enctype="multipart/form-data">
+    <input type="text" name="surname" placeholder="Surname" required>
+    <input type="text" name="other_names" placeholder="Other Names" required>
+    <input type="text" name="home_address" placeholder="Home Address" required>
+    <input type="text" name="telephone_number" placeholder="Telephone Number" required>
+    <input type="text" name="occupation" placeholder="Occupation" required>
+    <input type="text" name="next_of_kin_name" placeholder="Next of Kin's Name" required>
+    <input type="text" name="next_of_kin_phone_number" placeholder="Next of Kin's Phone Number" required>
+    <input type="text" name="relationship_with_next_of_kin" placeholder="Relationship with Next of Kin" required>
+    <input type="text" name="address_of_next_of_kin" placeholder="Address of Next of Kin" required>
+    <input type="number" name="monthly_savings" placeholder="Monthly Savings" required>
+    <input type="number" name="dividend" placeholder="Dividend">
+    <input type="file" name="passport_photograph" accept="image/*">
+    <label>
+        <input type="checkbox" name="agreement" required> I hereby formally apply to be admitted as a member of the above society and promise to abide by the Rules and Regulations, Bye-Laws and any further amendments thereto.
+    </label>
+    <button type="submit">Add Member</button>
+</form>
+{% endblock %}

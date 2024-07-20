@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search Results for "{{ query }}"</h1>
+<h2>Members</h2>
+<ul>
+    {% for member in members %}
+        <li>{{ member.name }} - {{ member.email }}</li>
+    {% endfor %}
+</ul>
+<h2>Documents</h2>
+<ul>
+    {% for document in documents %}
+        <li>{{ document.title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

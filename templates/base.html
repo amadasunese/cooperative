@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperative Society</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+
+</head>
+<body>
+    {% include 'navigation.html' %}
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+        
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+    <footer class="bg-dark text-white mt-5 p-4">
+        <div class="container">
+            <div class="row">
+                <!-- Office Location Widget -->
+                <div class="col-md-3">
+                    <h5>Office Location</h5>
+                    <p>123 Cooperative Street</p>
+                    <p>City, State, 12345</p>
+                    <p>Email: info@cooperative.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+
+                <!-- Services Widget -->
+                <div class="col-md-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Savings</a></li>
+                        <li><a href="#" class="text-white">Loans</a></li>
+                        <li><a href="#" class="text-white">Investments</a></li>
+                        <li><a href="#" class="text-white">Insurance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Useful Links Widget -->
+                <div class="col-md-3">
+                    <h5>Useful Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('dashboard') }}" class="text-white">Dashboard</a></li>
+                        <li><a href="{{ url_for('members') }}" class="text-white">Add Member</a></li>
+                        <li><a href="{{ url_for('members_list') }}" class="text-white">Members</a></li>
+                        <li><a href="{{ url_for('contributions') }}" class="text-white">Contributions</a></li>
+                        <li><a href="{{ url_for('loans') }}" class="text-white">Loans</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us Widget -->
+                <div class="col-md-3">
+                    <form class="form-inline" action="{{ url_for('search') }}" method="GET">
+                        <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p>© 2024 XYZ Multi-Purpose Cooperative Society. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+</html>

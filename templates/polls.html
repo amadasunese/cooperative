@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Polls</h2>
+                </div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add_poll') }}">
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="text" name="question" placeholder="Question" required>
+                        </div>
+                        <div id="options" class="form-group mb-3">
+                            <input class="form-control mb-2" type="text" name="options" placeholder="Option" required>
+                        </div>
+                        <button class="btn btn-secondary mb-3" type="button" onclick="addOption()">Add Another Option</button>
+                        <button class="btn btn-primary btn-block" type="submit">Create Poll</button>
+                    </form>
+
+                    <hr>
+
+                    <ul class="list-group">
+                        {% for poll in polls %}
+                            <li class="list-group-item">
+                                <div>
+                                    <strong>{{ poll.question }}</strong>
+                                    <ul class="list-group mt-2">
+                                        {% for option in poll.options %}
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                {{ option.text }} - Votes: {{ option.votes }}
+                                                <form method="POST" action="{{ url_for('vote', option_id=option.id) }}" class="form-inline">
+                                                    <button class="btn btn-primary btn-sm" type="submit">Vote</button>
+                                                </form>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function addOption() {
+    const optionsDiv = document.getElementById('options');
+    const newOption = document.createElement('input');
+    newOption.setAttribute('type', 'text');
+    newOption.setAttribute('name', 'options');
+    newOption.setAttribute('class', 'form-control mb-2');
+    newOption.setAttribute('placeholder', 'Option');
+    optionsDiv.appendChild(newOption);
+}
+</script>
+{% endblock %}

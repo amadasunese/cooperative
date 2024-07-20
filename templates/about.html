@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="display-4 text-center">About Us</h1>
+            <p class="lead mt-4">Welcome to XYZ Multi-Purpose Cooperative Society, where we believe in the power of collaboration and community to achieve financial growth and stability. Our society was founded with the vision to provide our members with access to financial services, resources, and opportunities that empower them to reach their financial goals and improve their quality of life.</p>
+            
+            <h2 class="mt-5">Our Mission</h2>
+            <p>Our mission is to foster a community-driven cooperative society that provides exceptional financial services and opportunities for our members. We aim to promote financial literacy, support economic growth, and enhance the well-being of our community through innovative and sustainable solutions.</p>
+            
+            <h2 class="mt-5">Our Vision</h2>
+            <p>We envision a financially inclusive society where every member has the resources, knowledge, and support to achieve financial independence and success. We strive to be a leading cooperative society recognized for our commitment to excellence, integrity, and member satisfaction.</p>
+            
+            <h2 class="mt-5">Our Values</h2>
+            <ul>
+                <li><strong>Integrity:</strong> We adhere to the highest standards of honesty and transparency in all our operations.</li>
+                <li><strong>Community:</strong> We believe in the power of community and work together to support each other's growth and success.</li>
+                <li><strong>Empowerment:</strong> We provide our members with the tools and resources they need to take control of their financial future.</li>
+                <li><strong>Innovation:</strong> We embrace innovative solutions to meet the evolving needs of our members and the community.</li>
+                <li><strong>Excellence:</strong> We are committed to delivering exceptional services and achieving outstanding results for our members.</li>
+            </ul>
+            
+            <h2 class="mt-5">Our Services</h2>
+            <p>We offer a wide range of financial services designed to meet the diverse needs of our members, including:</p>
+            <ul>
+                <li>Savings Accounts</li>
+                <li>Loan Services</li>
+                <li>Investment Opportunities</li>
+                <li>Financial Planning</li>
+                <li>Insurance Plans</li>
+                <li>Consultation Services</li>
+            </ul>
+            
+            <h2 class="mt-5">Join Us</h2>
+            <p>If you are interested in becoming a member of our cooperative society, please visit our <a href="{{ url_for('add_member') }}">Join Us</a> page for more information. We look forward to welcoming you to our community and supporting your financial journey.</p>
+            
+            <h2 class="mt-5">Contact Us</h2>
+            <p>If you have any questions or would like to learn more about our services, please feel free to <a href="{{ url_for('contact') }}">contact us</a>. Our team is always here to help and support you.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

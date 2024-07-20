@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Two-Factor Authentication</h1>
+<p>Enter the verification code from your authenticator app:</p>
+<form method="POST" action="{{ url_for('two_factor_verify') }}">
+    <input type="text" name="token" placeholder="Verification Code" required>
+    <button type="submit">Verify</button>
+</form>
+{% endblock %}

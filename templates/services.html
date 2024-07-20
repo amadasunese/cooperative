@@ -1,0 +1,47 @@
+<!-- services.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Our Services</h1>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h2>Savings Accounts</h2>
+            <p>Our savings accounts offer competitive interest rates and are designed to help you save money effectively. Whether you are saving for a rainy day or for a specific goal, our savings accounts provide the flexibility and security you need.</p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Loan Services</h2>
+            <p>We provide a variety of loan options to meet your financial needs. From personal loans to business loans, our loan services come with flexible terms and competitive interest rates. Our goal is to help you achieve your financial aspirations with ease and confidence.</p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Investment Opportunities</h2>
+            <p>Our cooperative offers lucrative investment opportunities for members looking to grow their wealth. Invest with us and enjoy profitable returns through our well-managed investment plans tailored to suit different risk appetites and financial goals.</p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Financial Planning</h2>
+            <p>We offer expert financial planning services to help you manage your finances and achieve your life goals. Our experienced financial planners work with you to create a personalized financial plan that aligns with your aspirations and helps secure your future.</p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Insurance Plans</h2>
+            <p>Protect yourself and your loved ones with our comprehensive insurance plans. We offer a range of insurance options, including life, health, and property insurance, designed to provide you with peace of mind and financial security in times of need.</p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Consultation Services</h2>
+            <p>Our professional consultation services are here to guide you in making informed financial decisions. Whether you need advice on investments, loans, or savings, our consultants are ready to assist you with personalized and expert advice.</p>
+        </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-12 text-center">
+            <p>Join us and benefit from our wide range of financial products and services tailored to meet your needs.</p>
+            <a href="{{ url_for('add_member') }}" class="btn btn-primary btn-lg mt-3">Join Us</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

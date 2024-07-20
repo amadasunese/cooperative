@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Membership Application form</h2>
+                    <p text-center>Want to join us? Fill the form below.</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add_member') }}" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="form-group">
+                            {{ form.surname.label(class="form-label") }}
+                            {{ form.surname(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.other_names.label(class="form-label") }}
+                            {{ form.other_names(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.home_address.label(class="form-label") }}
+                            {{ form.home_address(class="form-control", size=64) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.email.label(class="form-label") }}
+                            {{ form.email(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.date_of_birth.label(class="form-label") }}
+                            {{ form.date_of_birth(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.telephone_number.label(class="form-label") }}
+                            {{ form.telephone_number(class="form-control", size=15) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.occupation.label(class="form-label") }}
+                            {{ form.occupation(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.next_of_kin_name.label(class="form-label") }}
+                            {{ form.next_of_kin_name(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.next_of_kin_phone_number.label(class="form-label") }}
+                            {{ form.next_of_kin_phone_number(class="form-control", size=15) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.relationship_with_next_of_kin.label(class="form-label") }}
+                            {{ form.relationship_with_next_of_kin(class="form-control", size=32) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.address_of_next_of_kin.label(class="form-label") }}
+                            {{ form.address_of_next_of_kin(class="form-control", size=64) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.monthly_savings.label(class="form-label") }}
+                            {{ form.monthly_savings(class="form-control", step=0.01) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.share_capital.label(class="form-label") }}
+                            {{ form.share_capital(class="form-control", step=0.01) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.passport_photograph.label(class="form-label") }}
+                            {{ form.passport_photograph(class="form-control-file") }}
+                        </div>
+                        
+                        <div class="form-group form-check">
+                            {{ form.agreement(class="form-check-input") }}
+                            {{ form.agreement.label(class="form-check-label") }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-primary btn-block") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

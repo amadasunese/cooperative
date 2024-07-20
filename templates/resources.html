@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Resources</h2>
+                </div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add_resource') }}">
+                        <div class="form-group mb-3">
+                            <input class="form-control" type="text" name="title" placeholder="Title" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <textarea class="form-control" name="content" placeholder="Content" required></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Add Resource</button>
+                    </form>
+
+                    <hr>
+
+                    <ul class="list-group">
+                        {% for resource in resources %}
+                            <li class="list-group-item">
+                                <strong>{{ resource.title }}</strong> <small>({{ resource.date_added }})</small>: {{ resource.content }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

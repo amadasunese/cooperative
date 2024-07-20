@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card blog-post-card">
+                <div class="card-body">
+                    <div class="thumbnail mb-4">
+                        <img src="{{ url_for('static', filename=news.thumbnail) }}" alt="{{ news_item.title }}" class="img-fluid">
+                    </div>
+                    <h2 class="card-title display-4">{{ news_item.title }}</h2>
+                    <p class="card-subtitle text-muted">{{ news_item.date_added.strftime('%B %d, %Y') }}</p>
+                    <hr>
+                    <div class="card-text content mt-4">
+                        {% for paragraph in news_item.content.split('\n') %}
+                            <p>{{ paragraph }}</p>
+                        {% endfor %}
+                    </div>
+                    <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to News</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

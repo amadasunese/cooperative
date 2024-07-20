@@ -1,0 +1,442 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.dashboard-summary {
+    display: flex;
+    justify-content: space-around;
+}
+
+.summary-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #fff; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.member-table th, .member-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.member-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.member-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.member-table tr:hover {
+    background-color: #ddd;
+}
+
+.member-table img {
+    border-radius: 50%;
+}
+
+
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* footer {
+    text-align: center;
+    padding: 1em 0;
+    padding: 10px;
+ 
+    background-color:lightgray;
+    color: black;
+    position: absolute;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-top: 1px solid #e7e7e7;
+
+} */
+
+/* Center the login box */
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-box h2 {
+    margin-bottom: 1em;
+    text-align: center;
+    color: #333;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.mb-3 {
+    margin-bottom: 1.5em;
+}
+
+
+.services {
+    background-color:rgb(6, 6, 82);
+    color: white;
+}
+
+
+.content {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.content p {
+    margin-bottom: 1rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+
+
+
+
+
+.search-icon {
+    cursor: pointer;
+}
+.search-form {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.search-form.expanded {
+    display: block;
+}
+
+
+/* committee page */
+
+.committee-container {
+    margin-top: 50px;
+}
+.committee-member {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.committee-member img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    /* border-radius: 50%; */
+}
+
+
+/* 
+body {
+    background-color: #f4f4f9;
+} */
+
+/* .mana_container {
+    margin-top: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.committee-member {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.committee-member:hover {
+    transform: translateY(-10px);
+} */
+
+/* .committee-member img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+} */
+
+/* .committee-member img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.committee-member h4 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-top: 15px;
+}
+
+.committee-member p {
+    font-size: 1rem;
+    color: #555;
+} */
+
+
+/* Styles for Photo Cover */
+/* .photo-cover {
+    position: relative;
+    background: url('{{ url_for('static', filename='images/money.jpg') }}') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+} */
+
+.photo-cover {
+    position: relative;
+    background: url('/static/images/money.jpg') no-repeat center center / cover; /* Corrected URL */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.photo-cover h1, .photo-cover h3, .photo-cover p, .photo-cover .btn {
+    z-index: 1;
+}
+
+/* Add the following styles to your CSS file */
+/* Apply transition to the heading and paragraph tags */
+h2, p {
+    transition: all 0.3s ease;
+  }
+  
+  /* Define the hover effect for the service sections */
+  .col-md-6:hover h2, .col-md-6:hover p {
+    color: #ff7900; /* Change the color to your preferred animation effect */
+  }
+  
+
+  /* Add the following styles to your CSS file */
+/* Fade in animation for the service sections */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Apply the fade-in animation to the service sections */
+  .col-md-6 {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  /* Apply delay to individual service sections for a staggered effect */
+  .col-md-6:nth-child(odd) {
+    animation-delay: 0.3s;
+  }
+  
+
+  .card {
+    /* opacity: 0; */
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Add this to your CSS file or within a <style> tag in the base.html file */
+
+.blog-post-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+}
+
+.blog-post-card .thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.blog-post-card .card-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.blog-post-card .card-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.blog-post-card .content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.blog-post-card .btn {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+}
+
+
+/* Add this to your CSS file or within a <style> tag in the base.html file */
+
+.blog-posts .blog-post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-posts .blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blog-posts .blog-post img {
+    border-radius: 10px;
+    width: 150px;
+    height: auto;
+}
+
+.blog-posts .media-body h5 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-posts .media-body .post-meta {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.blog-posts .media-body .post-excerpt {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.post-actions .btn {
+    font-size: 0.875rem;
+}

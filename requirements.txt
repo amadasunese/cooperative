@@ -1,0 +1,2 @@
+flask_twofactor
+pip install pyotp qrcode
